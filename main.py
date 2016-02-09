@@ -6,7 +6,5 @@ from CsvExampleController import CsvExampleController
 from PySide.QtGui import QApplication
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
     c = CsvExampleController()
-    c.show()
-    sys.exit(app.exec_())
+    c.read_file()
