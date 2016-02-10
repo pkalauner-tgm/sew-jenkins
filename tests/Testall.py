@@ -35,7 +35,7 @@ class TestAllgemein(unittest.TestCase):
 
     def test_not_existing_file(self):
         self.model = CsvExampleModel()
-        self.assertRaises(FileNotFoundError, self.model.read_file, "notexisting.csv")
+        self.assertRaises(Exception, self.model.read_file, "notexisting.csv")
 
     def test_empty_csv_file(self):
         self.model = CsvExampleModel()
