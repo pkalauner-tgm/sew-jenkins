@@ -12,7 +12,7 @@ class TestAllgemein(unittest.TestCase):
     def test_valid_csv_1row(self):
         truedict = {'Spalte1': 'z1s1', 'Spalte2': 'z1s2'}
         self.model = CsvExampleModel()
-        self.model.read_file("file_1row.csv")
+        self.model.read_file("tests/file_1row.csv")
         for cur in self.model.data_list:
             for key in cur:
                 self.assertEqual(cur[key], truedict[key])
@@ -20,7 +20,7 @@ class TestAllgemein(unittest.TestCase):
     def test_valid_csv_2rows(self):
         truelist = [{'Spalte1': 'z1s1', 'Spalte2': 'z1s2'}, {'Spalte1': 'z2s1', 'Spalte2': 'z2s2'}]
         self.model = CsvExampleModel()
-        self.model.read_file("file_1row.csv")
+        self.model.read_file("tests/file_1row.csv")
         for i in range(len(self.model.data_list)):
             for key in self.model.data_list[i]:
                 self.assertEqual(self.model.data_list[i][key], truelist[i][key])
