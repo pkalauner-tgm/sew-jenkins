@@ -4,6 +4,7 @@ Created on 09.02.2016
 @author: Paul Kalauner 5BHIT
 """
 import unittest
+from CsvExampleController import CsvExampleController
 from CsvExampleModel import CsvExampleModel
 
 
@@ -24,13 +25,13 @@ class TestAllgemein(unittest.TestCase):
             for key in self.model.data_list[i]:
                 self.assertEqual(self.model.data_list[i][key], truelist[i][key])
 
-    def test_valid_csv_3rows(self):
+    def test_controler_valid_csv(self):
         truelist = [{'Spalte1': 'z1s1', 'Spalte2': 'z1s2'}, {'Spalte1': 'z2s1', 'Spalte2': 'z2s2'}, {'Spalte1': 'z3s1', 'Spalte2': 'z3s2'}]
-        self.model = CsvExampleModel()
-        self.model.read_file("file_1row.csv")
-        for i in range(len(self.model.data_list)):
-            for key in self.model.data_list[i]:
-                self.assertEqual(self.model.data_list[i][key], truelist[i][key])
+        c = CsvExampleController()
+        c.read_file()
+        for i in range(len(c.model.data_list)):
+            for key in c.model.data_list[i]:
+                self.assertEqual(c.model.data_list[i][key], truelist[i][key])
 
     def test_not_existing_file(self):
         self.model = CsvExampleModel()
